@@ -99,8 +99,15 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                 )
                 if user_text_input:
                     df = df[df[column].str.contains(user_text_input)]
-
     return df
 
 df = pd.read_csv("급매.csv")
-st.dataframe(filter_dataframe(df))
+#st.dataframe(filter_dataframe(df))
+
+st.data_editor(
+    filter_dataframe(df),
+    column_config={
+        "URL": st.column_config.LinkColumn("Link")
+    },
+    hide_index=True,
+)
