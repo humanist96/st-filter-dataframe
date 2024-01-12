@@ -7,12 +7,11 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
-st.title("Auto Filter Dataframes in Streamlit")
+st.title("케빈의 아파트 급매 조회 서비스")
 
 st.write(
-    """This app accomodates the blog [here](https://blog.streamlit.io/auto-generate-a-dataframe-filtering-ui-in-streamlit-with-filter_dataframe/)
-    and walks you through one example of how the Streamlit
-    Data Science Team builds add-on functions to Streamlit.
+    """서울의 네이버 호가 기준 급매 아파트 정보를 제공합니다.
+    매주 월요일 기준 업데이트합니다.
     """
 )
 
@@ -93,8 +92,5 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-
-df = pd.read_csv(
-    "https://raw.githubusercontent.com/mcnakhaee/palmerpenguins/master/palmerpenguins/data/penguins.csv"
-)
+df = pd.read_csv("급매.csv")
 st.dataframe(filter_dataframe(df))
