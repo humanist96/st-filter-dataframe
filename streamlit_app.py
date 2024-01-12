@@ -9,6 +9,8 @@ from pandas.api.types import (
 
 st.title("케빈의 아파트 급매 조회 서비스")
 
+st.header("공유하지 마시고 사용 부탁합니다.")
+
 st.caption(
     """
     - 서울의 네이버 호가 기준 급매 아파트 정보를 제공(전국 확대 예정)
