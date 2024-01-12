@@ -22,6 +22,7 @@ st.caption(
     """
 )
 
+st.image("구선택.png")
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
