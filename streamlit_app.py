@@ -7,7 +7,7 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
-st.title("케빈의 아파트 급매 조회 서비스")
+st.title("케빈의 아파트 급매 조회 서비스(베타버전)")
 
 st.caption(
     """
