@@ -22,7 +22,7 @@ st.caption(
     """
 )
 
-st.image("구선택.png")
+st.image("구선택.png", caption='사용예', width=200)
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
