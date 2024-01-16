@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+from streamlit_option_menu import option_menu
 from pandas.api.types import (
     is_categorical_dtype,
     is_datetime64_any_dtype,
@@ -7,24 +8,40 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
-st.title("케빈의 아파트 급매 조회 서비스")
+st.title("케빈의 아파트 매물 조회 서비스")
 
-st.header("공유하지 마시고 사용 부탁합니다.")
+st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
 
 st.caption(
-    """
-    - 서울의 네이버 호가 기준 급매 아파트 정보를 제공(전국 확대 예정)
-    - 매주 월요일 기준 업데이트
-    - 필터링 기능을 이용하여 본인이 원하는 조건의 매물을 검색.
-    - 특정 컬럼을 선택하여 정렬 기능을 이용 가능
-    - 테이블에 커서를 가져가면  오른 상단 기능 이용 가능(csv파일로 저장, 특정 문자열 검색, 풀화면)
-    - 가격데이터가 문자열이라 금액으로 정렬 불가능(기능 개선 예정)
+    """ 
+    - 네이버 호가와 실거래가 기준 정보 제공(단 서울시만, 전국 확대 예정)
+    - 업데이트 주기 : 매주 월요일
+    - 문의나 요구사항이 있으면 언제든지 문의주세요(humanist96@gmail.com) 🙏.
     """
 )
 
-st.image("구선택.png", caption='사용예')
+selected = option_menu(None, ["Home", "급매현황", "갭투자"],
+                            icons=['house', 'map', "file-spreadsheet"],
+                            menu_icon="cast", default_index=0, orientation="horizontal",
+                            styles={
+                                "container": {"padding": "0!important", "background-color": "#fafafa"},
+                                "icon": {"color": "orange", "font-size": "25px"},
+                                "nav-link": {"font-size": "18px", "text-align": "left", "margin": "0px",
+                                                "--hover-color": "#eee"},
+                                "nav-link-selected": {"background-color": "green"},
+                            }
+                        )
 
-st.markdown("""---""")
+def home():
+    st.text("👇 급매물 사용 예 👇")
+
+    st.image("구선택.png", caption='사용예')
+
+    st.text("👇 갭투자 사용 예 👇")
+
+    st.image("갭투자.png", caption='사용예')
+
+    st.markdown("""---""")
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -101,13 +118,28 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     df = df[df[column].str.contains(user_text_input)]
     return df
 
-df = pd.read_csv("급매.csv")
-#st.dataframe(filter_dataframe(df))
+if selected == 'Home':
+    home()
+elif selected == '급매현황':
+    df = pd.read_csv("급매.csv")
 
-st.data_editor(
-    filter_dataframe(df),
-    column_config={
-        "URL": st.column_config.LinkColumn("Link")
-    },
-    hide_index=True,
-)
+    st.data_editor(
+        filter_dataframe(df),
+        column_config={
+            "URL": st.column_config.LinkColumn("Link")
+        },
+        hide_index=True,
+    )
+elif selected == '갭투자':
+    df = pd.read_csv("갭.csv")
+    #st.dataframe(filter_dataframe(df))
+
+    st.data_editor(
+        filter_dataframe(df),
+        column_config={
+            "URL": st.column_config.LinkColumn("Link")
+        },
+        hide_index=True,
+    )
+else:
+    st.warning("Wrong")
