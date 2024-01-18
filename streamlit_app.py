@@ -8,13 +8,13 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
-st.title("케빈의 아파트 매물 조회 서비스")
+st.title("케빈의 아파트 투자 매물 조회 서비스")
 
 st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
 
 st.caption(
     """ 
-    - 네이버 호가와 실거래가 기준 정보 제공(단 서울시만, 전국 확대 예정)
+    - 네이버 호가와 실거래가 기준 정보 제공(전국단위)
     - 업데이트 주기 : 매주 월요일
     - 문의나 요구사항이 있으면 언제든지 문의주세요(humanist96@gmail.com) 🙏.
     """
