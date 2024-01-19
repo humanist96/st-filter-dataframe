@@ -8,7 +8,7 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
-st.title("케빈의 아파트 투자 매물 조회 서비스")
+st.title("아파트 투자 매물 조회 서비스")
 
 st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
 
