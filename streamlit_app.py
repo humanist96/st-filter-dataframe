@@ -122,7 +122,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 if selected == 'Home':
     home()
-elif selected == '급매현황':
+elif selected == '급매':
     df = pd.read_csv("급매.csv")
 
     st.data_editor(
