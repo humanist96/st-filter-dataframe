@@ -12,7 +12,9 @@ st.title("아파트 투자 매물 조회 서비스")
 
 st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
 
-selected = option_menu(None, ["Home", "급매현황", "갭투자"],
+st.text("✅ 본 사이트의 정보는 참고용이지 어떠한 책임도 지지 않습니다. ✅")
+
+selected = option_menu(None, ["Home", "급매", "갭투자"],
                             icons=['house', 'map', "file-spreadsheet"],
                             menu_icon="cast", default_index=0, orientation="horizontal",
                             styles={
@@ -29,17 +31,17 @@ def home():
     st.caption(
     """ 
     - 네이버 호가와 국토부 실거래가 기준 정보 제공(업데이트 주기 : 매주 월요일)
-    - 아직 베타버전(👷)입니다. 네이버 URL은 좀더 개선 예정입니다. 
+    - 아직 베타버전(👷)입니다.
     - 문의나 요구사항이 있으면 언제든지 연락주세요.(humanist96@gmail.com) 🙏.
     """
     )
-    st.text("👇 급매물 사용 예 👇")
+    st.text("👇 급매 사용 예 👇")
 
-    st.image("구선택.png", caption='사용예')
+    st.image("구선택.png", caption='급매 사용예')
 
     st.text("👇 갭투자 사용 예 👇")
 
-    st.image("갭투자.png", caption='사용예')
+    st.image("갭투자.png", caption='갭투자 사용예')
 
     st.markdown("""---""")
 
