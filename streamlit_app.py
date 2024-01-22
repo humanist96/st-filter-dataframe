@@ -59,7 +59,7 @@ def ai_home():
     """
     )
 
-    llm = OpenAI(api_key=st.secrets["api_key"])
+    llm = OpenAI(st.secrets["api_key"])
 
     df = pd.read_csv("급매.csv")
     sdf = SmartDataframe(df, config={"llm": llm})
