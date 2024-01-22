@@ -1,5 +1,7 @@
 import pandas as pd
 import streamlit as st
+
+
 from streamlit_option_menu import option_menu
 from pandas.api.types import (
     is_categorical_dtype,
@@ -8,14 +10,17 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
+from pandasai import SmartDataframe
+from pandasai.llm import OpenAI
+
 st.title("아파트 투자 매물 조회 서비스")
 
 st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
 
 st.text("✅ 본 사이트의 정보는 참고용이지 어떠한 책임도 지지 않습니다. ✅")
 
-selected = option_menu(None, ["Home", "급매", "갭투자"],
-                            icons=['house', 'map', "file-spreadsheet"],
+selected = option_menu(None, ["Home", "AI챗봇", "급매", "갭투자"],
+                            icons=['house', 'robot', 'map', "file-spreadsheet"],
                             menu_icon="cast", default_index=0, orientation="horizontal",
                             styles={
                                 "container": {"padding": "0!important", "background-color": "#fafafa"},
@@ -45,6 +50,38 @@ def home():
     st.image("갭투자.png", caption='갭투자 사용예')
 
     st.markdown("""---""")
+
+def ai_home():
+    st.caption(
+    """ 
+    - AI를 이용하여 자연어로 원하는 정보에 대한 답변을 얻을 수 있습니다.
+    - 현재 기능 구현 중입니다.
+    """
+    )
+
+    llm = OpenAI(api_token="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")
+
+    df = pd.read_csv("급매.csv")
+    sdf = SmartDataframe(df, config={"llm": llm})
+
+    answer_df=sdf.chat("\'서울특별시\'의 \'최저비율\'이 가장 낮은 top 5만 dataframe형식으로 가져와줘")
+
+    
+    #column_names = df.columns
+    answer = pd.DataFrame(data=answer_df, columns = ['시/도','구','단지명', 'URL', '입주일자', '세대수', '최고가', '최저가(22년이후)', 
+                                '최저가(2개월이내)', '매물최저가', '최저비율', '매물개수', '저가',
+                                '전세매물최고', '전세가율', '전세매물최저', '전세매물개수'])
+
+    st.text("👇 서울특별시의 최저가율이 가장 낮은 top 5 👇")
+
+    st.data_editor(
+        filter_dataframe(answer),
+        column_config={
+            "URL": st.column_config.LinkColumn("Link")
+        },
+        hide_index=True,
+    )
+
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -123,6 +160,8 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 if selected == 'Home':
     home()
+elif selected == 'AI챗봇':
+    ai_home()
 elif selected == '급매':
     df = pd.read_csv("급매.csv")
 
