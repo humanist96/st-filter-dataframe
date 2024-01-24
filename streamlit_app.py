@@ -66,6 +66,8 @@ def ai_home():
 
     answer_df=sdf.chat("\'서울특별시\'의 \'최저비율\'이 가장 낮은 top 5만 dataframe형식으로 가져와줘")
 
+    
+    #column_names = df.columns
     answer = pd.DataFrame(data=answer_df, columns = ['시/도','구','단지명', 'URL', '입주일자', '세대수', '최고가', '최저가(22년이후)', 
                                 '최저가(2개월이내)', '매물최저가', '최저비율', '매물개수', '저가',
                                 '전세매물최고', '전세가율', '전세매물최저', '전세매물개수'])
