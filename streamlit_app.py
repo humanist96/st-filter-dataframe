@@ -67,7 +67,7 @@ def ai_home():
     question="\'서울특별시\'의 \'최저비율\'이 가장 낮은 top 5는?"
     answer_sdf=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
 
-    answer=answer_df.copy()
+    answer=answer_sdf.copy()
 
     st.text("👇 서울특별시의 최저가율이 가장 낮은 top 5 👇")
 
