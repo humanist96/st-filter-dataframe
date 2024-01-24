@@ -71,23 +71,22 @@ def ai_home():
         submit = st.form_submit_button("Submit")
 
     if submit and question:
-        answer_df=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
-        print(type(answer_df))
-        answer = pd.DataFrame(data=answer_df, 
-                                columns = ['시/도','구','단지명', 'URL', 
-                                            '입주일자', '세대수', '최고가', '최저가(22년이후)', 
-                                            '최저가(2개월이내)', '매물최저가', '최저비율', 
-                                            '매물개수', '저가', '전세매물최고', '전세가율', 
-                                            '전세매물최저', '전세매물개수'])
-        print(type(answer))
-        print(answer_df)
-        st.data_editor(
-            filter_dataframe(answer),
-            column_config={
-                "URL": st.column_config.LinkColumn("Link")
-            },
-            hide_index=True,
-        )
+        with st.spinner('응답 기다리는 중...'):
+            answer_df=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
+            answer = pd.DataFrame(data=answer_df, 
+                                    columns = ['시/도','구','단지명', 'URL', 
+                                                '입주일자', '세대수', '최고가', '최저가(22년이후)', 
+                                                '최저가(2개월이내)', '매물최저가', '최저비율', 
+                                                '매물개수', '저가', '전세매물최고', '전세가율', 
+                                                '전세매물최저', '전세매물개수'])
+
+            st.data_editor(
+                filter_dataframe(answer),
+                column_config={
+                    "URL": st.column_config.LinkColumn("Link")
+                },
+                hide_index=True,
+            )
 
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
