@@ -71,7 +71,7 @@ def ai_home():
     - 좋은 질문 예 2) '마포구', '2020년' 이후 입주한 아파트 중에 '최저비율'이 가장 낮은 top 3를 오름차순으로 정렬
     """
     )
-    llm = OpenAI(api_token="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")
+    llm = OpenAI(st.secrets["api_key"])
 
     df = pd.read_csv("급매.csv")
     sdf = SmartDataframe(df, config={"llm": llm})
