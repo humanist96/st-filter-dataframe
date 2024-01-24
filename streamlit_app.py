@@ -73,7 +73,7 @@ def ai_home():
     if submit and question:
         with st.spinner('응답 기다리는 중...'):
             answer_df=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
-            answer = pd.DataFrame(data=answer_df, 
+            answer = pd.DataFrame(answer_df, 
                                     columns = ['시/도','구','단지명', 'URL', 
                                                 '입주일자', '세대수', '최고가', '최저가(22년이후)', 
                                                 '최저가(2개월이내)', '매물최저가', '최저비율', 
