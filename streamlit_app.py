@@ -82,7 +82,7 @@ def ai_home():
 
     if submit and question:
         with st.spinner('응답 기다리는 중...'):
-            answer_sdf=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
+            answer_sdf=sdf.chat("Convert amount-related values ​​that contain a mixture of Korean letters and numbers in all rows to numbers. Show the results of the answers to the following questions in a dataframe:" + question)
             
             #sdf -> df
             answer=answer_sdf.copy()
