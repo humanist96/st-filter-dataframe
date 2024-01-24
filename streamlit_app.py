@@ -52,32 +52,38 @@ def home():
     st.markdown("""---""")
 
 def ai_home():
+
     st.caption(
     """ 
     - AI를 이용하여 자연어로 원하는 정보에 대한 답변을 얻을 수 있습니다.
-    - 현재 기능 구현 중입니다.
+    - 컬럼명이나 필터링 값 들은 ''으로 지정해주세요. AI에게는 친절하게 질문하셔야 합니다. 
+    - 좋은 질문 예 1) '서울특별시'의 '최저비율'이 가장 낮은 top 5는?
+    - 좋은 질문 예 2) '마포구', '2020년' 이후 입주한 아파트 중에 '최저비율'이 가장 낮은 top 3를 오름차순으로 정렬
     """
     )
-
-    llm = OpenAI(st.secrets["api_key"])
+    llm = OpenAI(api_token="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")
 
     df = pd.read_csv("급매.csv")
     sdf = SmartDataframe(df, config={"llm": llm})
 
-    question="\'서울특별시\'의 \'최저비율\'이 가장 낮은 top 5는?"
-    answer_sdf=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
+    with st.form("form"):
+        question = st.text_input("Prompt")
+        submit = st.form_submit_button("Submit")
 
-    answer=answer_sdf.copy()
+    if submit and question:
+        with st.spinner('응답 기다리는 중...'):
+            answer_sdf=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
+            
+            #sdf -> df
+            answer=answer_sdf.copy()
 
-    st.text("👇 서울특별시의 최저가율이 가장 낮은 top 5 👇")
-
-    st.data_editor(
-        filter_dataframe(answer),
-        column_config={
-            "URL": st.column_config.LinkColumn("Link")
-        },
-        hide_index=True,
-    )
+            st.data_editor(
+                filter_dataframe(answer),
+                column_config={
+                    "URL": st.column_config.LinkColumn("Link")
+                },
+                hide_index=True,
+            )
 
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
