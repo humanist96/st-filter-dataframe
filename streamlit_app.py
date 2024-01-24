@@ -41,9 +41,18 @@ def home():
     - 문의나 요구사항이 있으면 언제든지 연락주세요.(humanist96@gmail.com) 🙏.
     """
     )
+
+    st.text("👇 자연어 조회 예 👇")
+
+    st.image("자연어_조회.png", caption='자연어 조회 사용예')
+
+    st.markdown("""---""")
+
     st.text("👇 급매 사용 예 👇")
 
     st.image("구선택.png", caption='급매 사용예')
+
+    st.markdown("""---""")
 
     st.text("👇 갭투자 사용 예 👇")
 
