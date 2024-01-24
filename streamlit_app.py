@@ -64,7 +64,8 @@ def ai_home():
     df = pd.read_csv("급매.csv")
     sdf = SmartDataframe(df, config={"llm": llm})
 
-    answer_df=sdf.chat("\'서울특별시\'의 \'최저비율\'이 가장 낮은 top 5만 dataframe형식으로 가져와줘")
+    question="\'서울특별시\'의 \'최저비율\'이 가장 낮은 top 5는?"
+    answer_sdf=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
 
     answer=answer_df.copy()
 
