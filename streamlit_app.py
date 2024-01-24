@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-
+import os
 
 from streamlit_option_menu import option_menu
 from pandas.api.types import (
@@ -73,6 +73,9 @@ def ai_home():
     if submit and question:
         with st.spinner('응답 기다리는 중...'):
             answer_df=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
+
+            os.write(type(answer_df))
+            os.write(answer_df)
             answer = pd.DataFrame(answer_df, 
                                     columns = ['시/도','구','단지명', 'URL', 
                                                 '입주일자', '세대수', '최고가', '최저가(22년이후)', 
