@@ -11,7 +11,10 @@ from pandas.api.types import (
 )
 
 from pandasai import SmartDataframe
+from pandasai import SmartDatalake
 from pandasai.llm import OpenAI
+from pandasai.prompts import AbstractPrompt
+
 
 st.title("아파트 투자 매물 조회 서비스")
 
@@ -30,6 +33,25 @@ selected = option_menu(None, ["Home", "AI챗봇", "급매", "갭투자"],
                                 "nav-link-selected": {"background-color": "green"},
                             }
                         )
+
+def convert_price_to_number(price_str):
+    """
+    한글로 표시된 금액을 숫자로 변환하는 함수
+    예: '34억9천' -> 34900
+    """
+    if pd.isnull(price_str) or price_str in ['0', '0건']:
+        return 0
+    num_str = price_str.replace('억', '').replace('천', '')
+    num_parts = price_str.split('억')
+    billion = 0
+    thousand = 0
+    if '억' in price_str:
+        billion = int(num_parts[0]) * 10000
+        if '천' in num_parts[1]:
+            thousand = int(num_parts[1].replace('천', '')) * 10
+    elif '천' in price_str:
+        thousand = int(num_parts[0].replace('천', '')) * 10
+    return int(billion + thousand)
 
 
 def home():
@@ -66,17 +88,37 @@ def ai_home():
     st.caption(
     """ 
     - AI를 이용하여 자연어로 원하는 정보에 대한 답변을 얻을 수 있습니다.
-    - 우선 급매/갭투자 탭에서 테이블 컬럼과 내용을 숙지하시고 사용해주세요.
     - 컬럼명이나 필터링 값 들은 ''으로 지정해주세요. AI에게는 친절하게 질문하셔야 합니다. 
     - 좋은 질문 예 1) '서울특별시'의 '최저비율'이 가장 낮은 top 5는?
-    - 좋은 질문 예 2) '마포구', '2020년' 이후 입주한 아파트 중에 '최저비율'이 가장 낮은 top 3를 오름차순으로 정렬
-    - 좋은 질문 예 3) '시/군' 기준으로 건수가 가장 많은 순으로 '시/군' 값과 개수를 나열
+    - 좋은 질문 예 2) '강남구'의 '매물최저가_숫자' 오름차순으로 상위 10개
+    - 좋은 질문 예 3) '마포구', '2020년' 이후 입주한 아파트 중에 '최저비율'이 가장 낮은 top 3를 오름차순으로 정렬
+    - 좋은 질문 예 4) '시/군' 기준으로 건수가 가장 많은 순으로 '시/군' 값과 개수를 나열
+    - 좋은 질문 예 5) '마포구'에서 가장 '최저비율'이 가장 낮은 top 10중에서 '매출최저가_숫자'의 내림차순으로 정렬
     """
     )
-    llm = OpenAI(st.secrets["api_key"])
+    llm = OpenAI(api_token="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")
 
-    df = pd.read_csv("급매.csv")
-    sdf = SmartDataframe(df, config={"llm": llm})
+    df1 = pd.read_csv("급매.csv")
+
+    #열의 값을 숫자로 변환하여 새로운 열에 저장
+    df1['최고가_숫자'] = df1['최고가'].apply(convert_price_to_number)
+    df1['최저가(22년이후)_숫자'] = df1['최저가(22년이후)'].apply(convert_price_to_number)
+    df1['최저가(2개월이내)_숫자'] = df1['최저가(2개월이내)'].apply(convert_price_to_number)
+    df1['매물최저가_숫자'] = df1['매물최저가'].apply(convert_price_to_number)
+    df1['전세매물최고_숫자'] = df1['전세매물최고'].apply(convert_price_to_number)
+    df1['전세매물최저_숫자'] = df1['전세매물최저'].apply(convert_price_to_number)
+
+    df2 = pd.read_csv("갭.csv")
+
+    #열의 값을 숫자로 변환하여 새로운 열에 저장
+    df2['실거래가_숫자'] = df2['실거래가'].apply(convert_price_to_number)
+    df2['매매최고가_숫자'] = df2['매매최고가'].apply(convert_price_to_number)
+    df2['갭투자금액_숫자'] = df2['갭투자금액'].apply(convert_price_to_number)
+    df2['전세가_숫자'] = df2['전세가'].apply(convert_price_to_number)
+
+    #sdf = SmartDataframe(df, config={"llm": llm})
+    dl = SmartDatalake([df1, df2], config={"llm": llm})
+    #dl = SmartDatalake([df1], config={"llm": llm})
 
     with st.form("form"):
         question = st.text_input("Prompt")
@@ -84,18 +126,21 @@ def ai_home():
 
     if submit and question:
         with st.spinner('응답 기다리는 중...'):
-            answer_sdf=sdf.chat("Show the results of the answers to the following questions in a dataframe:" + question)
+            answer_sdf=dl.chat("Show the results of the answers to the following questions in a dataframe:" + question)
             
-            #sdf -> df
-            answer=answer_sdf.copy()
+            try:
+                #sdf -> df
+                answer=answer_sdf.copy()
 
-            st.data_editor(
-                filter_dataframe(answer),
-                column_config={
-                    "URL": st.column_config.LinkColumn("Link")
-                },
-                hide_index=True,
-            )
+                st.data_editor(
+                    filter_dataframe(answer),
+                    column_config={
+                        "URL": st.column_config.LinkColumn("Link")
+                    },
+                    hide_index=True,
+                )
+            except:
+                st.text("죄송하지만 질문을 이해하지 못했습니다. 좀 더 잘 표현해주세요 ")
 
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
@@ -180,6 +225,14 @@ elif selected == 'AI챗봇':
 elif selected == '급매':
     df = pd.read_csv("급매.csv")
 
+    #열의 값을 숫자로 변환하여 새로운 열에 저장
+    df['최고가_숫자'] = df['최고가'].apply(convert_price_to_number)
+    df['최저가(22년이후)_숫자'] = df['최저가(22년이후)'].apply(convert_price_to_number)
+    df['최저가(2개월이내)_숫자'] = df['최저가(2개월이내)'].apply(convert_price_to_number)
+    df['매물최저가_숫자'] = df['매물최저가'].apply(convert_price_to_number)
+    df['전세매물최고_숫자'] = df['전세매물최고'].apply(convert_price_to_number)
+    df['전세매물최저_숫자'] = df['전세매물최저'].apply(convert_price_to_number)
+
     st.data_editor(
         filter_dataframe(df),
         column_config={
@@ -187,9 +240,16 @@ elif selected == '급매':
         },
         hide_index=True,
     )
+
 elif selected == '갭투자':
     df = pd.read_csv("갭.csv")
     #st.dataframe(filter_dataframe(df))
+
+    #열의 값을 숫자로 변환하여 새로운 열에 저장
+    df['실거래가_숫자'] = df['실거래가'].apply(convert_price_to_number)
+    df['매매최고가_숫자'] = df['매매최고가'].apply(convert_price_to_number)
+    df['갭투자금액_숫자'] = df['갭투자금액'].apply(convert_price_to_number)
+    df['전세가_숫자'] = df['전세가'].apply(convert_price_to_number)
 
     st.data_editor(
         filter_dataframe(df),
