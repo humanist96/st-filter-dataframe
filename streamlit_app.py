@@ -96,7 +96,7 @@ def ai_home():
     - 좋은 질문 예 5) '마포구'에서 가장 '최저비율'이 가장 낮은 top 10중에서 '매출최저가_숫자'의 내림차순으로 정렬
     """
     )
-    llm = OpenAI(api_token="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")
+    llm = OpenAI(st.secrets["api_key"])
 
     df1 = pd.read_csv("급매.csv")
 
