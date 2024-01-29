@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
+import webbrowser
 
 from streamlit_option_menu import option_menu
 from pandas.api.types import (
