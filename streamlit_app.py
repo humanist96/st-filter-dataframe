@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
-import webbrowser
 
 from streamlit_option_menu import option_menu
 from pandas.api.types import (
@@ -86,10 +85,8 @@ def home():
 
 def dashboard():
 
-    url = 'https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()'
-
-    if st.button('Open Full browser'):
-        webbrowser.open_new_tab(url)
+    link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=())'
+    st.markdown(link, unsafe_allow_html=True)
     
     components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()", height=5000)
                       
