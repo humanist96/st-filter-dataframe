@@ -84,9 +84,12 @@ def home():
     st.markdown("""---""")
 
 def dashboard():
-
+    st.text("✅ PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. ✅")
+    
     link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=())'
     st.markdown(link, unsafe_allow_html=True)
+
+    st.text("✅ 본 시각화 페이지는 로딩시간이 걸릴 수 있습니다. 잠시만 기다려주세요.✅")
     
     components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()", height=5000)
                       
