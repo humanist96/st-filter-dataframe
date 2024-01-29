@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-
+import streamlit.components.v1 as components
 
 from streamlit_option_menu import option_menu
 from pandas.api.types import (
@@ -22,8 +22,8 @@ st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
 
 st.text("✅ 본 사이트의 정보는 참고용이지 어떠한 책임도 지지 않습니다. ✅")
 
-selected = option_menu(None, ["Home", "AI챗봇", "급매", "갭투자"],
-                            icons=['house', 'robot', 'map', "file-spreadsheet"],
+selected = option_menu(None, ["Home", "대시보드", "AI챗봇", "급매", "갭투자"],
+                            icons=['house', 'clipboard-data', 'robot', 'map', "file-spreadsheet"],
                             menu_icon="cast", default_index=0, orientation="horizontal",
                             styles={
                                 "container": {"padding": "0!important", "background-color": "#fafafa"},
@@ -83,6 +83,9 @@ def home():
 
     st.markdown("""---""")
 
+def dashboard():
+    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()")
+                      
 def ai_home():
 
     st.caption(
@@ -94,6 +97,7 @@ def ai_home():
     - 좋은 질문 예 3) '마포구', '2020년' 이후 입주한 아파트 중에 '최저비율'이 가장 낮은 top 3를 오름차순으로 정렬
     - 좋은 질문 예 4) '시/군' 기준으로 건수가 가장 많은 순으로 '시/군' 값과 개수를 나열
     - 좋은 질문 예 5) '마포구'에서 가장 '최저비율'이 가장 낮은 top 10중에서 '매출최저가_숫자'의 내림차순으로 정렬
+    - 좋은 질문 예 6) '서울특별시'에서 '구'별 "매물최저가_숫자"의 평균이 높은 순서대로 나열해줘
     """
     )
     llm = OpenAI(st.secrets["api_key"])
@@ -220,6 +224,8 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 if selected == 'Home':
     home()
+elif selected == '대시보드':
+    dashboard()
 elif selected == 'AI챗봇':
     ai_home()
 elif selected == '급매':
