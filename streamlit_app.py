@@ -89,7 +89,7 @@ def dashboard():
     link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=())'
     st.markdown(link, unsafe_allow_html=True)
 
-    st.text("✅ 본 시각화 페이지는 로딩시간이 걸릴 수 있습니다. 잠시만 기다려주세요.✅")
+    st.text("✅ 본 시각화 페이지는 대시보드로써 로딩시간이 걸릴 수 있습니다. 잠시만 기다려주세요.. 원하는 이벤트만으로 동적으로 변경 조회 가능하세요.✅")
     
     components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()", height=5000)
                       
