@@ -102,9 +102,6 @@ def dashboard():
     
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
-    link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKANgQwHYHMJq1JEAa2nhABpxSFEQQBfSgZwHsYAXJAbQF1KBjFiggBbDE24g07figByIilJnyWSwRzQw5aygDMUMAJIY9ukEwAO%2FAIxL2eADIBLJp0qWY%2FJUzQioAIIAJkEwALJoAB4ACl4%2BfoEh4c4Ysd58IClBUJGENgBMAOwAzAAMxQCcFQC0AGwArAAcetUALK1BNWg2FbXV%2FABGevmt%2FBWNnSVKKeywAG5oKIRoEOzmes4oszASiLyUc85QAO5hLNmEQSz8olAY7BKUQdJoAGpHx0ZBeUVllTUNZptDpdHp9QbDUbjSbFezOfwAJUw%2BCQoD0MBYiloGBYx2qNnqikoa0IOOODEoMCg6KgTAAFiZtgslsgQMzoEhaqVuaUPCsmAREOwYNB6PQgA%3D&auth_provider_hint=anonymous1'
-    st.markdown(link, unsafe_allow_html=True)
-
     components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKANgQwHYHMJq1JEAa2nhABpxSFEQQBfSgZwHsYAXJAbQF1KBjFiggBbDE24g07figByIilJnyWSwRzQw5aygDMUMAJIY9ukEwAO%2FAIxL2eADIBLJp0qWY%2FJUzQioAIIAJkEwALJoAB4ACl4%2BfoEh4c4Ysd58IClBUJGENgBMAOwAzAAMxQCcFQC0AGwArAAcetUALK1BNWg2FbXV%2FABGevmt%2FBWNnSVKKeywAG5oKIRoEOzmes4oszASiLyUc85QAO5hLNmEQSz8olAY7BKUQdJoAGpHx0ZBeUVllTUNZptDpdHp9QbDUbjSbFezOfwAJUw%2BCQoD0MBYiloGBYx2qNnqikoa0IOOODEoMCg6KgTAAFiZtgslsgQMzoEhaqVuaUPCsmAREOwYNB6PQgA%3D&auth_provider_hint=anonymous1", height=2000)                  
 
 
