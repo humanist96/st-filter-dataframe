@@ -98,8 +98,8 @@ def dashboard():
     """
     )
 
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()", height=5000)
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKANgQwHYHMJq1JEAa2nhABpxSFEQQBfSgZwHsYAXJAbQF1KBjFiggBbDE24g07figByIilJnyWSwRzQw5aygDMUMAJIY9ukEwAO%2FAIxL2eADIBLJp0qWY%2FJUzQioAIIAJkEwALJoAB4ACl4%2BfoEh4c4Ysd58IClBUJGENgBMAOwAzAAMxQCcFQC0AGwArAAcetUALK1BNWg2FbXV%2FABGevmt%2FBWNnSVKKeywAG5oKIRoEOzmes4oszASiLyUc85QAO5hLNmEQSz8olAY7BKUQdJoAGpHx0ZBeUVllTUNZptDpdHp9QbDUbjSbFezOfwAJUw%2BCQoD0MBYiloGBYx2qNnqikoa0IOOODEoMCg6KgTAAFiZtgslsgQMzoEhaqVuaUPCsmAREOwYNB6PQgA%3D&auth_provider_hint=anonymous1")                  
+    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()", height=3000)
+    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKANgQwHYHMJq1JEAa2nhABpxSFEQQBfSgZwHsYAXJAbQF1KBjFiggBbDE24g07figByIilJnyWSwRzQw5aygDMUMAJIY9ukEwAO%2FAIxL2eADIBLJp0qWY%2FJUzQioAIIAJkEwALJoAB4ACl4%2BfoEh4c4Ysd58IClBUJGENgBMAOwAzAAMxQCcFQC0AGwArAAcetUALK1BNWg2FbXV%2FABGevmt%2FBWNnSVKKeywAG5oKIRoEOzmes4oszASiLyUc85QAO5hLNmEQSz8olAY7BKUQdJoAGpHx0ZBeUVllTUNZptDpdHp9QbDUbjSbFezOfwAJUw%2BCQoD0MBYiloGBYx2qNnqikoa0IOOODEoMCg6KgTAAFiZtgslsgQMzoEhaqVuaUPCsmAREOwYNB6PQgA%3D&auth_provider_hint=anonymous1", height=1000)                  
 def ai_home():
 
     st.caption(
