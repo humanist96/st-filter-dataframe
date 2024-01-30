@@ -92,14 +92,19 @@ def dashboard():
     st.caption(
     """ 
     - 본 시각화 페이지는 대시보드로써 로딩시간이 걸릴 수 있습니다. 잠시만 기다려주세요. 
-    - 아직 베타버전(👷)입니다. (서울 강남구 일부 데이터만 존재)
+    - 아직 베타버전(👷)입니다. (현재는 서울 데이터만 존재)
     - 화면에서 특정 조건과 선택만으로 원하는 정보를 변경 조회 가능하세요..
     - 문의나 요구사항이 있으면 언제든지 연락주세요.(humanist96@gmail.com) 🙏.
     """
     )
 
     components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()", height=3700)
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKANgQwHYHMJq1JEAa2nhABpxSFEQQBfSgZwHsYAXJAbQF1KBjFiggBbDE24g07figByIilJnyWSwRzQw5aygDMUMAJIY9ukEwAO%2FAIxL2eADIBLJp0qWY%2FJUzQioAIIAJkEwALJoAB4ACl4%2BfoEh4c4Ysd58IClBUJGENgBMAOwAzAAMxQCcFQC0AGwArAAcetUALK1BNWg2FbXV%2FABGevmt%2FBWNnSVKKeywAG5oKIRoEOzmes4oszASiLyUc85QAO5hLNmEQSz8olAY7BKUQdJoAGpHx0ZBeUVllTUNZptDpdHp9QbDUbjSbFezOfwAJUw%2BCQoD0MBYiloGBYx2qNnqikoa0IOOODEoMCg6KgTAAFiZtgslsgQMzoEhaqVuaUPCsmAREOwYNB6PQgA%3D&auth_provider_hint=anonymous1", height=1000)                  
+    
+    st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
+    
+    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKANgQwHYHMJq1JEAa2nhABpxSFEQQBfSgZwHsYAXJAbQF1KBjFiggBbDE24g07figByIilJnyWSwRzQw5aygDMUMAJIY9ukEwAO%2FAIxL2eADIBLJp0qWY%2FJUzQioAIIAJkEwALJoAB4ACl4%2BfoEh4c4Ysd58IClBUJGENgBMAOwAzAAMxQCcFQC0AGwArAAcetUALK1BNWg2FbXV%2FABGevmt%2FBWNnSVKKeywAG5oKIRoEOzmes4oszASiLyUc85QAO5hLNmEQSz8olAY7BKUQdJoAGpHx0ZBeUVllTUNZptDpdHp9QbDUbjSbFezOfwAJUw%2BCQoD0MBYiloGBYx2qNnqikoa0IOOODEoMCg6KgTAAFiZtgslsgQMzoEhaqVuaUPCsmAREOwYNB6PQgA%3D&auth_provider_hint=anonymous1", height=2000)                  
+
+
 def ai_home():
 
     st.caption(
