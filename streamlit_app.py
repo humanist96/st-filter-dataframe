@@ -84,11 +84,7 @@ def home():
     st.markdown("""---""")
 
 def dashboard():
-    st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
-    
-    link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1)'
-    st.markdown(link, unsafe_allow_html=True)
-    
+
     st.caption(
     """ 
     - 본 시각화 페이지는 대시보드로써 로딩시간이 걸릴 수 있습니다. 잠시만 기다려주세요. 
@@ -97,15 +93,20 @@ def dashboard():
     - 문의나 요구사항이 있으면 언제든지 연락주세요.(humanist96@gmail.com) 🙏.
     """
     )
-
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1", height=3800)
+    
+    st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
+    
+    link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1)'
+    st.markdown(link, unsafe_allow_html=True)
+    
+    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1", height=4000)
     
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
-    link2 = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKSsGJCANCANgQwDsBzCfYqJEAa2nhAF8cBnAexgBckBtAXRwDGrXBAC2hZjxD4OA3ADlR2abIWtlQzvhjz1OAGa4YASUL69IZgAcBARmVWYA5R3IAZAJbMuOACYeYKAEOD1ZCZQAjD1xfRRB%2BEA9CXygADypbACYAdgBmAAZcgE4igFoANgBWAA59UoAWet8y%2FFsi8tKBCP1M%2BoEi6ua85SSOWAA3fFwqfAgOC31osZhJRD4cAAsPFIBhDe0uRH0p5igccY8oAHcAWVYUql9WATEoQg5JHGIYbaRgJks%2BHGUF8AGUoNoBBtjL4qDUBPh6rZcplShFqhEOvV9NkOoNfL40eV6pVsc1ctVicpfDJ8AA1S5XGEZHIFYplKq1BpNFptDpdHp9AZDXIuDyiKAAJSIFD%2BIH0MFYSgwhFYV1KtkqShw8yoqqujBwgQVUGY0PeEymcsmIkoiHK%2BUd%2BRwVlmpyQHBg0AYDCAA&auth_provider_hint=anonymous1)'
+    link2 = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/xm3FE?auth_provider_hint=anonymous1)'
     st.markdown(link2, unsafe_allow_html=True)
 
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r?l=DISCOVER_APP_LOCATOR&v=8.12.0&lz=N4IgjgrgpgTgniAXKSsGJCANCANgQwDsBzCfYqJEAa2nhAF8cBnAexgBckBtAXRwDGrXBAC2hZjxD4OA3ADlR2abIWtlQzvhjz1OAGa4YASUL69IZgAcBARmVWYA5R3IAZAJbMuOACYeYKAEOD1ZCZQAjD1xfRRB%2BEA9CXygADypbACYAdgBmAAZcgE4igFoANgBWAA59UoAWet8y%2FFsi8tKBCP1M%2BoEi6ua85SSOWAA3fFwqfAgOC31osZhJRD4cAAsPFIBhDe0uRH0p5igccY8oAHcAWVYUql9WATEoQg5JHGIYbaRgJks%2BHGUF8AGUoNoBBtjL4qDUBPh6rZcplShFqhEOvV9NkOoNfL40eV6pVsc1ctVicpfDJ8AA1S5XGEZHIFYplKq1BpNFptDpdHp9AZDXIuDyiKAAJSIFD%2BIH0MFYSgwhFYV1KtkqShw8yoqqujBwgQVUGY0PeEymcsmIkoiHK%2BUd%2BRwVlmpyQHBg0AYDCAA&auth_provider_hint=anonymous1", height=1000)                  
+    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/xm3FE?auth_provider_hint=anonymous1", height=1000)                  
 
 
 def ai_home():
