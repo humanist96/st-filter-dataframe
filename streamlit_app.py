@@ -86,7 +86,7 @@ def home():
 def dashboard():
     st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
     
-    link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=())'
+    link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1)'
     st.markdown(link, unsafe_allow_html=True)
     
     st.caption(
@@ -98,7 +98,7 @@ def dashboard():
     """
     )
 
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/dashboards?auth_provider_hint=anonymous1#/view/e86e9b92-94fa-46fc-8fbe-4e1242b9ee4e?embed=true&_g=(refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=()", height=3800)
+    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1", height=3800)
     
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
