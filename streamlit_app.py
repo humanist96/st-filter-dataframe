@@ -96,17 +96,17 @@ def dashboard():
     
     st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
     
-    link = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1)'
+    link = '[full screen](https://8e14c71b0ee7412d9bdb4f885eac0a5d.us-central1.gcp.cloud.es.io:9243/app/r/s/3ZPfX?auth_provider_hint=anonymous1)'
     st.markdown(link, unsafe_allow_html=True)
     
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/shPQK?auth_provider_hint=anonymous1", height=4000)
+    components.iframe("https://8e14c71b0ee7412d9bdb4f885eac0a5d.us-central1.gcp.cloud.es.io:9243/app/r/s/3ZPfX?auth_provider_hint=anonymous1", height=4000)
     
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
-    link2 = '[full screen](https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/xm3FE?auth_provider_hint=anonymous1)'
+    link2 = '[full screen](https://8e14c71b0ee7412d9bdb4f885eac0a5d.us-central1.gcp.cloud.es.io:9243/app/r/s/pEbCW?auth_provider_hint=anonymous1)'
     st.markdown(link2, unsafe_allow_html=True)
 
-    components.iframe("https://fc13fe19a65a4dc98eba7a9b60b22626.us-central1.gcp.cloud.es.io:9243/app/r/s/xm3FE?auth_provider_hint=anonymous1", height=1000)                  
+    components.iframe("https://8e14c71b0ee7412d9bdb4f885eac0a5d.us-central1.gcp.cloud.es.io:9243/app/r/s/pEbCW?auth_provider_hint=anonymous1", height=1000)                  
 
 
 def ai_home():
