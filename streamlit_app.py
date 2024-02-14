@@ -22,7 +22,7 @@ st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
 
 st.text("✅ 본 사이트의 정보는 참고용이지 어떠한 책임도 지지 않습니다. ✅")
 
-selected = option_menu(None, ["Home", "Dashboard", "AI챗봇", "급매", "갭투자"],
+selected = option_menu(None, ["Home", "시각화", "AI챗봇", "급매", "갭투자"],
                             icons=['house', 'clipboard-data', 'robot', 'map', "file-spreadsheet"],
                             menu_icon="cast", default_index=0, orientation="horizontal",
                             styles={
