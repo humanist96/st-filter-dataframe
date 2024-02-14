@@ -62,10 +62,9 @@ def home():
     - 네이버 URL이 올바르지 않은 경우는 네이버부동산에서 아파트명을 수정하여 검색해보세요.
     - 문의나 요구사항이 있으면 언제든지 연락주세요.(humanist96@gmail.com) 🙏.
     """
-    )
-    st.markdown("""시각화""")
+    st.markdown("""---""")
     
-    st.text("👇 시각화 예 👇")
+    st.text("👇 대시보드 예 👇")
 
     st.image("시각화.png", caption='시각화_대시보드')
 
@@ -253,7 +252,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 if selected == 'Home':
     home()
-elif selected == '시각화':
+elif selected == 'Dashboard':
     dashboard()
 elif selected == 'AI챗봇':
     ai_home()
