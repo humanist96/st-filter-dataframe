@@ -253,7 +253,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 if selected == 'Home':
     home()
-elif selected == 'Dashboard':
+elif selected == '시각화':
     dashboard()
 elif selected == 'AI챗봇':
     ai_home()
