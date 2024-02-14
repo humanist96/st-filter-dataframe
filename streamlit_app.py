@@ -65,7 +65,7 @@ def home():
     
     st.markdown("""---""")
     
-    st.text("👇 대시보드 예 👇")
+    st.text("👇 시각화(대시보드) 예 👇")
 
     st.image("시각화.png", caption='시각화_대시보드')
 
