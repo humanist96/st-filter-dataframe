@@ -105,13 +105,8 @@ def dashboard():
     link = '[full screen](https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/wlJ85?auth_provider_hint=anonymous1)'
     st.markdown(link, unsafe_allow_html=True)
     
-    #components.iframe("https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/wlJ85?auth_provider_hint=anonymous1", height=4000)
-    components.html(
-        """
-        <iframe src="https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/Ysoco?auth_provider_hint=anonymous1" height="600" width="800"></iframe>
-        """,
-        height=600,
-    )
+    components.iframe("https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/wlJ85?auth_provider_hint=anonymous1", height=4000)
+
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
     link2 = '[full screen](https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/xxwZY?auth_provider_hint=anonymous1)'
