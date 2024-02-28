@@ -102,10 +102,10 @@ def dashboard():
     
     st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
     
-    link = '[full screen]("https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/wlJ85?auth_provider_hint=anonymous1")'
+    link = '[full screen]("http://43.202.45.220:5601/goto/a102500133b71490e4f7f3c999038579?security_tenant=private")'
     st.markdown(link, unsafe_allow_html=True)
     
-    components.iframe("https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/wlJ85?auth_provider_hint=anonymous1", height=4000)
+    components.iframe("http://43.202.45.220:5601/goto/a102500133b71490e4f7f3c999038579?security_tenant=privateso", height=4000)
 
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
