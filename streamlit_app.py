@@ -102,7 +102,7 @@ def dashboard():
     
     st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
     
-    link = '[full screen]("http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128")'
+    link = '[full screen](http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128)'
     st.markdown(link, unsafe_allow_html=True)
     
     components.iframe("http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128", height=4000)
