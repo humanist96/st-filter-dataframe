@@ -105,14 +105,14 @@ def dashboard():
     link = '[full screen](http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128)'
     st.markdown(link, unsafe_allow_html=True)
     
-    components.iframe("http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128", height=4000)
+    #components.iframe("http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128", height=4000)
 
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
-    link2 = '[full screen](https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/xxwZY?auth_provider_hint=anonymous1)'
+    link2 = '[full screen](http://43.202.45.220:6601/goto/7a6c6ca267b3aedf3d79457d88971391)'
     st.markdown(link2, unsafe_allow_html=True)
 
-    components.iframe("https://6f06b41203aa492b81d4e62ee92d66f9.us-central1.gcp.cloud.es.io:9243/app/r/s/xxwZY?auth_provider_hint=anonymous1", height=1000)                  
+    #components.iframe("http://43.202.45.220:6601/goto/7a6c6ca267b3aedf3d79457d88971391", height=1000)                  
 
 
 def ai_home():
