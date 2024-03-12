@@ -13,7 +13,7 @@ from pandas.api.types import (
 from pandasai import SmartDataframe
 from pandasai import SmartDatalake
 from pandasai.llm import OpenAI
-from pandasai.prompts import AbstractPrompt
+#from pandasai.prompts import AbstractPrompt
 
 
 st.title("아파트 투자 매물 조회 서비스")
