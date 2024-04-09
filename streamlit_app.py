@@ -102,17 +102,17 @@ def dashboard():
     
     st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
     
-    link = '[full screen](http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128)'
+    link = '[full screen](http://3.34.193.163:5601/goto/9a6cfb6ba1b46420dd6aa32efff38036)'
     st.markdown(link, unsafe_allow_html=True)
     
-    #components.iframe("http://43.202.45.220:6601/goto/9b546c3159c83d56e4621ba7a3219128", height=4000)
+    #components.iframe("http://3.34.193.163:5601/goto/9a6cfb6ba1b46420dd6aa32efff38036", height=4000)
 
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
-    link2 = '[full screen](http://43.202.45.220:6601/goto/7a6c6ca267b3aedf3d79457d88971391)'
+    link2 = '[full screen](http://3.34.193.163:5601/goto/7a6c6ca267b3aedf3d79457d88971391)'
     st.markdown(link2, unsafe_allow_html=True)
 
-    #components.iframe("http://43.202.45.220:6601/goto/7a6c6ca267b3aedf3d79457d88971391", height=1000)                  
+    #components.iframe("http://3.34.193.163:5601/goto/7a6c6ca267b3aedf3d79457d88971391", height=1000)                  
 
 
 def ai_home():
