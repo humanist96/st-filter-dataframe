@@ -109,10 +109,10 @@ def dashboard():
 
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
-    link2 = '[full screen](http://3.34.193.163:5601/goto/7a6c6ca267b3aedf3d79457d88971391)'
+    link2 = '[full screen](http://49.247.170.21:5601/goto/fd4da9040a36e48602238e5a3b38efb3/goto/7a6c6ca267b3aedf3d79457d88971391)'
     st.markdown(link2, unsafe_allow_html=True)
 
-    #components.iframe("http://3.34.193.163:5601/goto/7a6c6ca267b3aedf3d79457d88971391", height=1000)                  
+    #components.iframe("http://49.247.170.21:5601/goto/fd4da9040a36e48602238e5a3b38efb3/goto/7a6c6ca267b3aedf3d79457d88971391", height=1000)                  
 
 
 def ai_home():
