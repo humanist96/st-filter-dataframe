@@ -15,6 +15,9 @@ from pandasai import SmartDatalake
 from pandasai.llm import OpenAI
 #from pandasai.prompts import AbstractPrompt
 
+from streamlit_extras.buy_me_a_coffee import button
+
+button(username="humanist96s", floating=True, width=221)
 
 st.title("아파트 투자 매물 조회 서비스")
 
