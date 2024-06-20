@@ -21,8 +21,6 @@ button(username="humanist96s", floating=True, width=221)
 
 st.title("아파트 투자 매물 조회 서비스")
 
-st.text("⭐ 공유하지 마시고 사용 부탁합니다. ⭐")
-
 st.text("✅ 본 사이트의 정보는 참고용이지 어떠한 책임도 지지 않습니다. ✅")
 
 selected = option_menu(None, ["Home", "시각화", "AI챗봇", "급매", "갭투자"],
