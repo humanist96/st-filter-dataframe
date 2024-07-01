@@ -2,3 +2,4 @@ streamlit_option_menu
 pandasai
 pyyaml
 streamlit-extras
+pandas==1.4.2
