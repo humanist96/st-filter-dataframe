@@ -3,3 +3,4 @@ pandasai
 pyyaml
 streamlit-extras
 numpy<2
+seaborn
