@@ -297,15 +297,24 @@ elif selected == '갭투자':
 else:
     st.warning("Wrong")
 
-# HTML 코드 삽입
+# HTML 코드 삽입 (왼쪽 상단 정렬)
 chatbot_html = """
+<style>
+  /* 챗봇 위치를 왼쪽 상단으로 이동 */
+  #chatling-embed {
+      position: fixed !important;
+      top: 20px !important;
+      left: 20px !important;
+      z-index: 1000 !important;
+  }
+</style>
 <script>
   window.chtlConfig = { chatbotId: "3591773561" };
 </script>
-<script async data-id="3591773561" id="chatling-embed-script" type="text/javascript" 
-src="https://chatling.ai/js/embed.js"></script>
+<script async data-id="3591773561" id="chatling-embed-script" 
+type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
 """
 
 # Streamlit에서 HTML 실행
-st.components.v1.html(chatbot_html, height=0)  # height=0으로 설정하면 화면에는 안 보이지만 실행됨
+st.components.v1.html(chatbot_html, height=0)  # height=0으로 설정하면 공간 차지 X
 
