@@ -103,14 +103,14 @@ def dashboard():
     
     st.text("👇 PC 전체화면에서 이용하시면 더욱 가시성이 좋습니다. 👇")
     
-    link = '[full screen](http://49.247.172.187:5601/goto/9a6cfb6ba1b46420dd6aa32efff38036)'
+    link = '[full screen](http://49.247.172.187:5601/goto/eedf0e854cafa2539d5557d4f38514bb)'
     st.markdown(link, unsafe_allow_html=True)
     
     #components.iframe("http://49.247.170.21:5601/goto/fd4da9040a36e48602238e5a3b38efb3", height=4000)
 
     st.text("👇 아래에서는 네이버 전체 시세정보를 탐색할 수 있습니다. 👇")
 
-    link2 = '[full screen](http://49.247.172.187:5601/goto/1905189b2a28917d367ed6b0df526dfd)'
+    link2 = '[full screen](http://49.247.172.187:5601/goto/eedf0e854cafa2539d5557d4f38514bb)'
     st.markdown(link2, unsafe_allow_html=True)
 
     #components.iframe("http://49.247.170.21:5601/goto/f433462f1273ecd6430ca75c8bc3d9b8", height=1000)                  
