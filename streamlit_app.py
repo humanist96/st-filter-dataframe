@@ -14,7 +14,8 @@ from pandasai import SmartDataframe
 from pandasai import SmartDatalake
 #from pandasai.llm import OpenAI
 #from pandasai.llms.openai import OpenAI
-from pandasai.llm.connectors.openai import OpenAIConnector
+#from pandasai.llm.connectors.openai import OpenAIConnector
+from pandasai.connectors.openai import OpenAIConnector
 
 
 #from pandasai.prompts import AbstractPrompt
