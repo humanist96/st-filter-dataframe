@@ -12,8 +12,8 @@ from pandas.api.types import (
 
 from pandasai import SmartDataframe
 from pandasai import SmartDatalake
-from pandasai.llm import OpenAI
-#from pandasai.llms.openai import OpenAI
+#from pandasai.llm import OpenAI
+from pandasai.llms.openai import OpenAI
 
 #from pandasai.prompts import AbstractPrompt
 
