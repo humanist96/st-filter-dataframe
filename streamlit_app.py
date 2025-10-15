@@ -10,6 +10,10 @@ from pandas.api.types import (
     is_object_dtype,
 )
 
+import pandasai
+import streamlit as st
+st.write("✅ pandasai version:", pandasai.__version__)
+
 from pandasai import SmartDataframe
 from pandasai import SmartDatalake
 #from pandasai.llm import OpenAI
