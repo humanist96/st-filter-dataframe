@@ -1,5 +1,5 @@
 streamlit_option_menu
-pandasai
+pandasai>=2.2.0
 pyyaml
 streamlit-extras
 numpy<2
