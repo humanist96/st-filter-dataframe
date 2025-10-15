@@ -11,16 +11,51 @@ from pandas.api.types import (
 )
 
 import pandasai
-import streamlit as st
-st.write("✅ pandasai version:", pandasai.__version__)
-
 from pandasai import SmartDataframe
 from pandasai import SmartDatalake
 #from pandasai.llm import OpenAI
-from pandasai.llms.openai import OpenAI
+#from pandasai.llms.openai import OpenAI
 #from pandasai.llm.connectors.openai import OpenAIConnector
 #from pandasai.connectors.openai import OpenAIConnector
 
+
+try:
+    from pandasai.connectors.openai import OpenAIConnector  # type: ignore[attr-defined]
+except ModuleNotFoundError:  # pragma: no cover - depends on pandasai version
+    OpenAIConnector = None
+
+try:
+    from pandasai.llm import OpenAI  # type: ignore[attr-defined]
+except ImportError:  # pragma: no cover - depends on pandasai version
+    try:
+        from pandasai.llms.openai import OpenAI  # type: ignore[attr-defined]
+    except ImportError:  # pragma: no cover - depends on pandasai version
+        OpenAI = None
+
+
+def _get_pandasai_version() -> str:
+    """Return the pandasai version string if available."""
+
+    version_attr = getattr(pandasai, "__version__", "unknown")
+    if hasattr(version_attr, "__version__"):
+        return getattr(version_attr, "__version__", "unknown")
+    return str(version_attr)
+
+
+def _create_llm(api_token: str):
+    """Create the appropriate OpenAI LLM/connector for the current pandasai version."""
+
+    if OpenAIConnector is not None:
+        return OpenAIConnector(api_token=api_token)
+    if OpenAI is not None:
+        return OpenAI(api_token=api_token)
+    raise RuntimeError(
+        "현재 설치된 pandasai 버전에서 OpenAI 연동이 지원되지 않습니다. "
+        "requirements.txt의 pandasai 버전을 확인해주세요."
+    )
+
+
+st.write("✅ pandasai version:", _get_pandasai_version())
 
 #from pandasai.prompts import AbstractPrompt
 
