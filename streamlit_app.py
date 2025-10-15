@@ -17,9 +17,9 @@ st.write("✅ pandasai version:", pandasai.__version__)
 from pandasai import SmartDataframe
 from pandasai import SmartDatalake
 #from pandasai.llm import OpenAI
-#from pandasai.llms.openai import OpenAI
+from pandasai.llms.openai import OpenAI
 #from pandasai.llm.connectors.openai import OpenAIConnector
-from pandasai.connectors.openai import OpenAIConnector
+#from pandasai.connectors.openai import OpenAIConnector
 
 
 #from pandasai.prompts import AbstractPrompt
@@ -139,8 +139,8 @@ def ai_home():
     - 좋은 질문 예 6) '서울특별시'에서 '구'별 "매물최저가_숫자"의 평균이 높은 순서대로 나열해줘
     """
     )
-    #llm = OpenAI(st.secrets["api_key"])
-    llm = OpenAIConnector(api_token=st.secrets["api_key"])
+    llm = OpenAI(st.secrets["api_key"])
+    #llm = OpenAIConnector(api_token=st.secrets["api_key"])
     df1 = pd.read_csv("급매.csv")
 
     #열의 값을 숫자로 변환하여 새로운 열에 저장
