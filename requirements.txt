@@ -1,5 +1,7 @@
 streamlit_option_menu
-pandasai==2.2.21
+# Pin PandasAI below the breaking 3.x series to retain the legacy OpenAI connector
+# that the app relies on when running inside Streamlit Cloud.
+pandasai>=2.2.0,<3.0.0
 pyyaml
 streamlit-extras
 numpy<2
