@@ -1,6 +1,5 @@
 streamlit_option_menu
 pandasai==2.2.21
-#git+https://github.com/gventuri/pandas-ai.git
 pyyaml
 streamlit-extras
 numpy<2
